@@ -15,14 +15,13 @@ class Canvas():
         The canvas is a matrix of whitespaces."""
         
         for i in range(self.height):
-            # Making rows lists because they're mutable so 
-            # updating the row with chars from rectangles
-            # is more efficient. Before printing I need to 
-            # join them!
+            # Making rows lists because they're mutable so updating
+            # the row with chars from rectangles is more efficient.
+            # Before printing I need to join them!
             row  = [" "] * self.width
 
-            # If there are shapes on the canvas, loop
-            # through them and add their characters.
+            # If there are shapes on the canvas, loop through them and
+            # add their characters.
             for rectangle in self.rectangles:
                 if rectangle.start_y <= i <= rectangle.end_y:
                     # Slice the part of the canvas covered by
