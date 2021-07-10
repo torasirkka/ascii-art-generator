@@ -26,7 +26,7 @@ class Canvas():
                 if rectangle.start_y <= i <= rectangle.end_y:
                     # Slice the part of the canvas covered by
                     # the rectangle. Update the characters in
-                    # slice to those specified by the rectangle
+                    # slice to the fill char on the rectangle
                     # instance.
                     row[rectangle.start_x: rectangle.end_x] = [rectangle.fill_char] * (rectangle.end_x - rectangle.start_x)
 
@@ -57,6 +57,20 @@ class Rectangle():
 
     def update_char(self, char):
         self.fill_char = str(char)
+
+    def translate(self, axis:int, num: int):
+        """Translate the rectangle (the start and end coordinates).
+        
+        axis = 0: translate along x-axis.
+        axis = 1: translate along y-axis."""
+
+        if axis == 0:
+            self.start_x += num
+            self.end_x += num
+        if axis == 1:
+            self.start_y += num
+            self.end_y += num
+
 
     def __repr__(self):
         return f'Rectangle dim: {self.end_x - self.start_x}x{self.end_y - self.start_y}.'
